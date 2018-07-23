@@ -5,6 +5,8 @@ import Home from '@comp/home';
 import About from '@comp/about';
 import Page404 from '@comp/common/page404';
 
+import '@/utils/scss/main.scss';
+
 class App extends React.Component {
   public render() {
     return (
