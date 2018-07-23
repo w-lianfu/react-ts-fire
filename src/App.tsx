@@ -1,29 +1,21 @@
 import * as React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-interface Props {
-  name: string;
-}
-interface State {
-  num: number;
-}
+import Home from '@comp/home';
+import About from '@comp/about';
+import Page404 from '@comp/common/page404';
 
-class App extends React.Component<Props, State> {
-  public state = {
-    num: 100
-  };
-
+class App extends React.Component {
   public render() {
-    const { name } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">To get started</p>
-        <p>{name}</p>
-        <p>{this.state.num}</p>
-      </div>
-    );
+      <Router>
+        <Switch>
+          <Route exact={true} path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route component={Page404} />
+        </Switch>
+      </Router>
+    )
   }
 }
 
